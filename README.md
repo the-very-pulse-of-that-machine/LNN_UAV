@@ -11,7 +11,7 @@ demo.mp4    演示视频
     data_collect.py    数据集制备主程序
     detect.py    图像识别class
     proxy.py    运动控制接口库
-    Pub_yaw.py    无线电测向模拟发布程序
+    Pub_yaw.py    无线电测向信息模拟发布程序
     standard_vtol_position.py    地面计算飞机位置发布程序
     target_calc.py    目标位置解算库
     inferencer.py    模型正向推理class
@@ -20,12 +20,12 @@ demo.mp4    演示视频
     lstm_stress_test.py    lstm压力测试程序
     lstminferencer.py    lstm正向推理class
 
-    model_test.py    模型测试程序
+    model_test.py    LNN主测试程序
     model_test2.py
-    stress_test2.py    压力测试程序
+    stress_test2.py    LNN压力测试程序
     
-    .*\.pth    模型权重文件
-    .*\.ckpt    训练过程断点文件
+    {.*\}.pth    模型权重文件
+    {.*\}.ckpt    训练过程断点文件
 
     -utili    杂项文件
 
@@ -47,9 +47,9 @@ demo.mp4    演示视频
         validate3.py
         validate_ltm.py
 
-        .*\.npy    数据集文件
-        .*\.pth    模型权重文件
-        .*\.ckpt   训练过程断点文件
+        {.*\}.npy    数据集文件
+        {.*\}.pth    模型权重文件
+        {.*\}.ckpt   训练过程断点文件
 ```
 
 ## 部署
@@ -73,6 +73,7 @@ catkin build
 #### 4、启动！
 ```bash 
 source .bashrc
+source $catkin路径/devel/setup.bash
 roslaunch lnn_landing LNN_test.launch
 ```
 正常情况下会出现类似水磨石花纹的地板和一架白色飞机，若飞机为黑色则检查是否成功替换模型文件
@@ -83,11 +84,7 @@ python3 model_test2.py
 ```
 稍作等待后会出现飞机下视摄像头视角的cv2窗口，若没有出现则检查gazebo_ros插件是否配置成功。飞机会在稍后解锁起飞，若没有起飞请下载QGC地面站将飞机的arm检查条件调至较宽松情况并设置无遥控器信号允许arm。
 
-#### 演示视频
-<video width="640" height="360" controls>
-  <source src="/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+#### [演示视频](http://1.94.52.128:3333/demo_with_words.mp4)
 
 
 ##### 有问题请联系 91mrqiao@mail.nwpu.edu.cn

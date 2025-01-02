@@ -87,7 +87,7 @@ def mission():
                 flag = 1
             rate.sleep()
 
-         
+        #mission begin
         if flag == 1:
             if cy > 0.1:   
                 velPub(0, 0, 0, 0)
@@ -104,17 +104,12 @@ def mission():
                 else:
                     velPub(0, 2, 0, -0.5)
                     wa = -0.2
-         
+        #LNN takeover 
         if flag == 3:
             if cx == -1:   
                 flag = 1
             else:
                 target = covert([cx*1280, cy*720],height,K)
-            
-            da, db = target[0] - a, target[1] - b
-            da1 = da*np.cos(y)+db*np.sin(y)
-            db1 = da*np.sin(-1*y)+db*np.cos(y)
-            
              
             outp_vel, errx, inx = pid(target[1], 0, KP4, KI4, KD4, errx, inx)
             outy_vel, erry, iny = pid(target[0], 0, KP5, KI5, KD5, erry, iny)

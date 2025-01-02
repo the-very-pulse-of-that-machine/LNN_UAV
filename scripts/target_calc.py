@@ -46,11 +46,6 @@ def CoordinateTransfer(R, cx, cy, a, b, h, K):
     R = P @ R
     T = R @ T
      
-    assert R.shape == (3, 3), "R 必须是 3x3 矩阵"
-    assert T.shape == (3, 1), "T 必须是 3x1 矩阵"
-    assert K.shape == (3, 3), "K 必须是 3x3 矩阵"
-    
-     
     uv_h = np.array([cx, cy, 1.0]).reshape(3, 1)
     
      
@@ -94,11 +89,6 @@ def CoordinateTransfer(R, cx, cy, a, b, h, K):
     w = np.array([0,0,0])
     R = P @ R
     T = R @ T
-     
-    assert R.shape == (3, 3), "R 必须是 3x3 矩阵"
-    assert T.shape == (3, 1), "T 必须是 3x1 矩阵"
-    assert K.shape == (3, 3), "K 必须是 3x3 矩阵"
-    
      
     uv_h = np.array([cx, cy, 1.0]).reshape(3, 1)
     

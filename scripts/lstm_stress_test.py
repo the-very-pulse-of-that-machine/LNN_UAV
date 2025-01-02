@@ -42,7 +42,7 @@ def mission():
 
     cunt = 0   
     noise_std_dev = 0.1
-    an = random.uniform(-1*np.pi, np.pi)
+    an = random.uniform(-1*np.pi, np.pi) #noise
      
     while not rospy.is_shutdown():
         r, p, y = roll_pitch_yaw()

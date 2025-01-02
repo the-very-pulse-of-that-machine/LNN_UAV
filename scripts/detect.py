@@ -8,6 +8,7 @@ class ImageProcessor:
     def __init__(self):
         self.bridge = CvBridge()
         self.image_sub = rospy.Subscriber('/standard_vtol_0/camera/image_raw', Image, self.image_callback)
+        #image ros topic
         self.green_center = None   
         self.running = True   
 

@@ -6,8 +6,6 @@ from torch import nn
 class LSTMInferencer:
     def __init__(self, model_path: str, in_features: int = 2, out_features: int = 3, hidden_size: int = 64):
         """
-        初始化 LSTMInferencer 类，并加载模型。
-
         Args:
         - model_path: 模型权重文件的路径
         - in_features: 输入特征数
@@ -21,9 +19,7 @@ class LSTMInferencer:
         self.model = self.load_model()
 
     def load_model(self):
-        """
-        加载预训练的 LSTM 模型。
-        """
+
         class LSTMModel(nn.Module):
             def __init__(self, input_size, hidden_size, output_size, num_layers=1):
                 super(LSTMModel, self).__init__()
@@ -46,25 +42,13 @@ class LSTMInferencer:
         return model
 
     def inference(self, input_data: torch.Tensor):
-        """
-        对输入数据进行推理。
-        """
         with torch.no_grad():
             prediction = self.model(input_data.unsqueeze(1))   
         return prediction
 
     def infer(self, input: pd.DataFrame):
-        """
-        推理接口。
-        Args:
-        - input: pd.DataFrame，形状为 (2, N)，每列为一个样本
-        Returns:
-        - np.ndarray，预测结果
-        """
-         
         data_x = input.values.T   
         data_x_tensor = torch.tensor(data_x, dtype=torch.float32)
-
          
         predictions = self.inference(data_x_tensor)
         return predictions.numpy()

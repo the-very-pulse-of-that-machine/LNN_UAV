@@ -9,8 +9,6 @@ from ncps.torch import LTC
 class Inferencer:
     def __init__(self, model_path: str, in_features: int = 2, out_features: int = 3):
         """
-        初始化 Inferencer 类，并加载模型。
-
         Args:
         - model_path: 模型权重文件的路径
         - in_features: 输入特征数

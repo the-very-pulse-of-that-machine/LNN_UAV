@@ -1,4 +1,4 @@
- 
+#direct uav motion control api
 import rospy
 import time, math, random
 from geometry_msgs.msg import PoseStamped, Pose, Twist, TwistStamped
